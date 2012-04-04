@@ -22,7 +22,7 @@ This repo includes a sample Activity (__ExampleActivity.java__) to show how to u
 
 			setContentView(R.layout.main);
 
-			ActionItem nextItem 	= new ActionItem(ID_DOWN, "Next", getResources().getDrawable(R.drawable.menu_down_arrow));
+			ActionItem nextItem 	= new ActionItem("Next", getResources().getDrawable(R.drawable.menu_down_arrow));
 			ActionItem prevItem 	= new ActionItem(ID_UP, "Prev", getResources().getDrawable(R.drawable.menu_up_arrow));
         	ActionItem searchItem 	= new ActionItem(ID_SEARCH, "Find", getResources().getDrawable(R.drawable.menu_search));
         	ActionItem infoItem 	= new ActionItem(ID_INFO, "Info", getResources().getDrawable(R.drawable.menu_info));
