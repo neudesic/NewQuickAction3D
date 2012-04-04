@@ -1,7 +1,9 @@
 package net.londatiga.android;
 
+import net.londatiga.android.QuickAction.OnActionItemClickListener;
 import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
+import android.view.View;
 
 /**
  * Action item, displayed as menu with icon and text.
@@ -16,9 +18,10 @@ public class ActionItem {
 	private Drawable icon;
 	private Bitmap thumb;
 	private String title;
-	private int actionId = -1;
+//	private int actionId = -1;
     private boolean selected;
     private boolean sticky;
+	private OnActionItemClickListener onActionItemClickListener;
 	
     /**
      * Constructor
@@ -27,17 +30,16 @@ public class ActionItem {
      * @param title     Title
      * @param icon      Icon to use
      */
-    public ActionItem(int actionId, String title, Drawable icon) {
+    public ActionItem(String title, Drawable icon) {
         this.title = title;
         this.icon = icon;
-        this.actionId = actionId;
     }
     
     /**
      * Constructor
      */
     public ActionItem() {
-        this(-1, null, null);
+        this(null, null);
     }
     
     /**
@@ -46,8 +48,8 @@ public class ActionItem {
      * @param actionId  Action id of the item
      * @param title     Text to show for the item
      */
-    public ActionItem(int actionId, String title) {
-        this(actionId, title, null);
+    public ActionItem(String title) {
+        this( title, null);
     }
     
     /**
@@ -56,7 +58,7 @@ public class ActionItem {
      * @param icon {@link Drawable} action icon
      */
     public ActionItem(Drawable icon) {
-        this(-1, null, icon);
+        this(null, icon);
     }
     
     /**
@@ -66,7 +68,7 @@ public class ActionItem {
      * @param icon      {@link Drawable} action icon
      */
     public ActionItem(int actionId, Drawable icon) {
-        this(actionId, null, icon);
+        this(null, icon);
     }
 	
 	/**
@@ -104,21 +106,8 @@ public class ActionItem {
 		return this.icon;
 	}
 	
-	 /**
-     * Set action id
-     * 
-     * @param actionId  Action id for this action
-     */
-    public void setActionId(int actionId) {
-        this.actionId = actionId;
-    }
+	 
     
-    /**
-     * @return  Our action id
-     */
-    public int getActionId() {
-        return actionId;
-    }
     
     /**
      * Set sticky status of button
@@ -170,5 +159,23 @@ public class ActionItem {
 	 */
 	public Bitmap getThumb() {
 		return this.thumb;
+	}
+
+	public void itemClicked(View v)
+	{
+		if(getOnActionItemClickListener() != null)
+		{
+			getOnActionItemClickListener().onItemClick(v);
+		}
+	}
+
+	public OnActionItemClickListener getOnActionItemClickListener()
+	{
+		return onActionItemClickListener;
+	}
+
+	public void setOnActionItemClickListener(OnActionItemClickListener onActionItemClickListener)
+	{
+		this.onActionItemClickListener = onActionItemClickListener;
 	}
 }
