@@ -44,6 +44,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener
 	private int mAnimStyle;
 	private int mOrientation;
 	private int rootWidth = 0;
+	private boolean showHorizontalSeperator = true;
 
 	public static final int HORIZONTAL = 0;
 	public static final int VERTICAL = 1;
@@ -54,6 +55,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener
 	public static final int ANIM_REFLECT = 4;
 	public static final int ANIM_AUTO = 5;
 	private final Integer itemViewId;
+
 
 	/**
 	 * Constructor for default vertical layout
@@ -228,7 +230,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener
 		container.setFocusable(true);
 		container.setClickable(true);
 
-		if (mOrientation == HORIZONTAL && mChildPos != 0)
+		if (showHorizontalSeperator &&  mOrientation == HORIZONTAL && mChildPos != 0)
 		{
 			View separator = mInflater.inflate(R.layout.horiz_separator, null);
 
@@ -432,6 +434,16 @@ public class QuickAction extends PopupWindows implements OnDismissListener
 		{
 			mDismissListener.onDismiss();
 		}
+	}
+
+	public boolean isShowHorizontalSeperator()
+	{
+		return showHorizontalSeperator;
+	}
+
+	public void setShowHorizontalSeperator(boolean showHorizontalSeperator)
+	{
+		this.showHorizontalSeperator = showHorizontalSeperator;
 	}
 
 	/**
