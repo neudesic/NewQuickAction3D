@@ -1,5 +1,9 @@
 **/bin/*
-**/gen/*
+gen/**
 *.class
 R.java
 local.properties
+classes.dex
+bin/
+gen/*
+gen/net/londatiga/android/R.java
