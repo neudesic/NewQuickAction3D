@@ -1,3 +1,5 @@
-bin/**
-gen/**
+**/bin/*
+**/gen/*
+*.class
+R.java
 local.properties
