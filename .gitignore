@@ -4,6 +4,8 @@ gen/**
 R.java
 local.properties
 classes.dex
-bin/
+bin/*
 gen/*
 gen/net/londatiga/android/R.java
+
+bin
