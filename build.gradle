@@ -14,6 +14,14 @@ android {
 //    Have this building against gradle version: gradle-1.8/bin/gradle build
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+//        minSdkVersion rootProject.ext.minSdkVersion
+//        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
